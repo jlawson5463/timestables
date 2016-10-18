@@ -19,9 +19,6 @@ var selectAll = $("#selectAll");
 var allChecked = false;
 var quizSection = $("#quiz");
 var questionSection = $("#question");
-var cookie = document.cookie;
-
-cookie = "username=Jane Lawson; expires=Thu, 18 Oct 2016 00:00:00 UTC";
 
 (function () {
     HideQuestionSection();
@@ -34,7 +31,7 @@ function HideQuestionSection() {
 $("#choiceOfTables label").on("click", function () {
     var $this = $(this);
     if (this.htmlFor != "selectAll") {
-        if (isAlreadyInList(this)) {
+        if (RemoveIfAlreadyInList(this)) {
             $this.removeClass("chosen");
         } else {
             $this.addClass("chosen");
@@ -63,6 +60,7 @@ selectAll.on("click", function () {
         $("#choiceOfTables label").each(function () {
             if (this.htmlFor != "selectAll") {
                 window.tablesChosen.splice(this, 1);
+                document.cookie = "tablesChosen=" + tablesChosen;
                 $(this).removeClass("chosen");
             }
         });
@@ -73,13 +71,16 @@ selectAll.on("click", function () {
 function AddToList(buttonClicked) {
     var numToAdd = buttonClicked.innerText;
     window.tablesChosen.push(parseInt(numToAdd));
+    document.cookie = "tablesChosen=" + tablesChosen;
 }
 
-function isAlreadyInList(buttonClicked) {
+
+function RemoveIfAlreadyInList(buttonClicked) {
     for (var i = 0; i < window.tablesChosen.length; i++) {
         var $this = window.tablesChosen[i];
         if ($this === parseInt(buttonClicked.innerText)) {
             window.tablesChosen.splice(i, 1);
+            document.cookie = "tablesChosen=" + tablesChosen;
             return true;
         }
     }
