@@ -1,6 +1,6 @@
 ﻿body {
     font-size: 3em;
-    font-family: Verdana, Geneva, sans-serif;
+    font-family: Comic Sans MS, cursive, sans-serif;
 }
 
 section p {
@@ -22,17 +22,25 @@ section p {
     top: -6px;
 }
 
-#startBtn, #endPractice {
+#startBtn {
     font-size: 1em;
+}
+ 
+#endPractice{
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    font-size: 0.4em;
+    padding: 10px 15px;
 }
 
 #choiceOfTables {
     font-size: 0.7em;
-    margin-bottom: 4em;
+    margin-bottom: 2em;
 }
 
     #choiceOfTables .ui-button:not(:first-child) {
-        width: 100px;
+        min-width: 50px;
     }
 
     #choiceOfTables .ui-button{
