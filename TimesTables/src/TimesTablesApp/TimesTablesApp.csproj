@@ -57,7 +57,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="home.html" />
+    <Content Include="index.html" />
     <Content Include="jquery-3.1.0.js" />
     <Content Include="JQueryTheme\AUTHORS.txt" />
     <Content Include="JQueryTheme\images\ui-bg_diagonals-small_40_db4865_40x40.png" />
