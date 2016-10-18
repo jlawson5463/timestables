@@ -18,6 +18,14 @@ section p {
     border-radius: 10px;
 }
 
+#okBtn {
+    top: -6px;
+}
+
+#startBtn, #endPractice {
+    font-size: 1em;
+}
+
 #choiceOfTables {
     font-size: 0.7em;
     margin-bottom: 4em;

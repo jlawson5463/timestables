@@ -19,6 +19,7 @@ var selectAll = $("#selectAll");
 var allChecked = false;
 var quizSection = $("#quiz");
 var questionSection = $("#question");
+var endSession = $("#endPractice");
 
 (function () {
     HideQuestionSection();
@@ -26,6 +27,7 @@ var questionSection = $("#question");
 
 function HideQuestionSection() {
     questionSection.hide();
+    endSession.hide();
 }
 
 $("#choiceOfTables label").on("click", function () {
@@ -44,12 +46,13 @@ function startPracticing() {
     startBtn.hide();
     questionSection.show();
     newQuestion();
+    endSession.show();
 }
 
 selectAll.on("click", function () {
     if (allChecked === false) {
         window.tablesChosen = [];
-        $("#choiceOfTables label").each(function () {
+        $("#choiceOfTables label").each(function() {
             if (this.htmlFor != "selectAll") {
                 $(this).addClass("chosen");
                 AddToList(this);
@@ -57,13 +60,7 @@ selectAll.on("click", function () {
         });
         allChecked = true;
     } else {
-        $("#choiceOfTables label").each(function () {
-            if (this.htmlFor != "selectAll") {
-                window.tablesChosen.splice(this, 1);
-                document.cookie = "tablesChosen=" + tablesChosen;
-                $(this).removeClass("chosen");
-            }
-        });
+        DeselectAll();
         allChecked = false;
     }
 });
@@ -73,7 +70,6 @@ function AddToList(buttonClicked) {
     window.tablesChosen.push(parseInt(numToAdd));
     document.cookie = "tablesChosen=" + tablesChosen;
 }
-
 
 function RemoveIfAlreadyInList(buttonClicked) {
     for (var i = 0; i < window.tablesChosen.length; i++) {
@@ -85,6 +81,16 @@ function RemoveIfAlreadyInList(buttonClicked) {
         }
     }
     return false;
+}
+
+function DeselectAll() {
+    $("#choiceOfTables label").each(function() {
+        if (this.htmlFor != "selectAll") {
+            window.tablesChosen.splice(this, 1);
+            document.cookie = "tablesChosen=" + tablesChosen;
+            $(this).removeClass("chosen");
+        }
+    });
 }
 
 function newQuestion() {
@@ -173,6 +179,13 @@ function SetUpNextButton() {
     nextBtn.focus();
     okBtn.prop("disabled", true);
     okBtn.hide();
+}
+
+function stopPracticing() {
+    HideQuestionSection();
+    DeselectAll();
+    selectAll.prop('checked', false);
+    startBtn.show();
 }
 
 okBtn.click(validateAnswer);
