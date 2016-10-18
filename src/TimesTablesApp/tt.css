@@ -1,0 +1,66 @@
+﻿body {
+    font-size: 3em;
+    font-family: Verdana, Geneva, sans-serif;
+}
+
+section p {
+    display: inline;
+    font-size: 1em;
+}
+
+    section p:last-of-type {
+        display: block;
+        color: red;
+    }
+
+.ui-button {
+    padding: 30px 60px;
+    border-radius: 10px;
+}
+
+#choiceOfTables {
+    font-size: 0.7em;
+    margin-bottom: 4em;
+}
+
+    #choiceOfTables .ui-button:not(:first-child) {
+        width: 100px;
+    }
+
+    #choiceOfTables .ui-button{
+        margin: 0 5px;
+        padding: 0px;
+        height: 48px;
+        text-align: center;
+    }
+
+    #choiceOfTables .ui-button:first-child {
+        width: 140px;
+        font-size: 0.6em;
+        line-height: 48px;
+    }
+
+
+#givenAnswer {
+    width: 200px;
+    vertical-align: central;
+}
+
+#quiz {
+    margin: 0 auto;
+    text-align: center;
+}
+
+#question {
+    margin: 0 auto;
+}
+
+#quiz h2 {
+    margin-bottom: 1em;
+}
+
+#quiz .chosen {
+    background:  #db4865 url("JQueryTheme/images/ui-bg_diagonals-small_40_db4865_40x40.png") 50% 50% repeat;
+    color: white;
+}
+

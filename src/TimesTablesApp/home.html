@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Times Tables App</title>
+    <script src="jquery-3.1.0.js"></script>
+    <script src="JQueryTheme/jquery-ui.min.js"></script>
+    <link href="JQueryTheme/jquery-ui.css" rel="stylesheet" />
+    <link href="JQueryTheme/jquery-ui.theme.css" rel="stylesheet" />
+    <link rel="stylesheet" href="tt.css" type="text/css" />
+</head>
+
+<body>
+
+    <section id="quiz">
+        <h2 class="ui-widget-header">Practice tables</h2>
+
+        <fieldset id="choiceOfTables">
+            <legend>Choose your tables</legend>
+            <div role="toolbar" class="ui-controlgroup ui-controlgroup-horizontal ui-helper-clearfix">
+                
+                <label for="selectAll" class="ui-button ui-widget ">select all</label>
+                <input type="checkbox" name="selectAll" id="selectAll"/>
+
+                <label for="one" class="ui-button ui-widget ui-checkboxradio-checked ui-controlgroup-item">1</label>
+                <input type="submit" name="one" id="one" class="ui-checkboxradio ui-helper-hidden-accessible"/>
+                <label for="two" class="ui-button ui-widget ui-checkboxradio-checked ui-controlgroup-item">2</label>
+                <input type="submit" name="two" id="two" class="ui-checkboxradio ui-helper-hidden-accessible"/>
+                <label for="three" class="ui-button ui-widget ui-checkboxradio-checked ui-controlgroup-item">3</label>
+                <input type="submit" name="three" id="three" class="ui-checkboxradio ui-helper-hidden-accessible"/>
+                <label for="four" class="ui-button ui-widget ui-checkboxradio-checked ui-controlgroup-item">4</label>
+                <input type="submit" name="four" id="four" class="ui-checkboxradio ui-helper-hidden-accessible"/>
+                <label for="five" class="ui-button ui-widget ui-checkboxradio-checked ui-controlgroup-item">5</label>
+                <input type="submit" name="five" id="five" class="ui-checkboxradio ui-helper-hidden-accessible"/>
+                <label for="six" class="ui-button ui-widget ui-checkboxradio-checked ui-controlgroup-item">6</label>
+                <input type="submit" name="six" id="six" class="ui-checkboxradio ui-helper-hidden-accessible"/>
+                <label for="seven" class="ui-button ui-widget ui-checkboxradio-checked ui-controlgroup-item">7</label>
+                <input type="submit" name="seven" id="seven" class="ui-checkboxradio ui-helper-hidden-accessible"/>
+                <label for="eight" class="ui-button ui-widget ui-checkboxradio-checked ui-controlgroup-item">8</label>
+                <input type="submit" name="eight" id="eight" class="ui-checkboxradio ui-helper-hidden-accessible"/>
+                <label for="nine" class="ui-button ui-widget ui-checkboxradio-checked ui-controlgroup-item">9</label>
+                <input type="submit" name="nine" id="nine" class="ui-checkboxradio ui-helper-hidden-accessible"/>
+                <label for="ten" class="ui-button ui-widget ui-checkboxradio-checked ui-controlgroup-item">10</label>
+                <input type="submit" name="ten" id="ten" class="ui-checkboxradio ui-helper-hidden-accessible"/>
+                <label for="eleven" class="ui-button ui-widget ui-checkboxradio-checked ui-controlgroup-item">11</label>
+                <input type="submit" name="eleven" id="eleven" class="ui-checkboxradio ui-helper-hidden-accessible"/>
+                <label for="twelve" class="ui-button ui-widget ui-checkboxradio-checked ui-controlgroup-item">12</label>
+                <input type="submit" name="twelve" id="twelve" class="ui-checkboxradio ui-helper-hidden-accessible"/>
+            </div>
+        </fieldset>
+
+         <button type="button" id="startBtn" class="ui-button ui-widget ui-checkboxradio-checked ui-controlgroup-item" onclick="startPracticing()">Start</button>  
+
+        <div id="question">
+            <p id="firstNumber"></p>
+            <p id="timesSign">X</p>
+            <p id="secondNumber"></p>
+            <p id="equalsSign">=</p>
+            <input id="givenAnswer" type="text" class="ui-widget" />
+            <input id="okBtn" type="button" value="OK" class="ui-button" />
+            <input id="nextBtn" type="button" value="Next" class="ui-button" />
+            <p id="errorMessage"></p>
+        </div>
+    </section>
+
+    <script src="tt.js"></script>
+</body>
+</html>
