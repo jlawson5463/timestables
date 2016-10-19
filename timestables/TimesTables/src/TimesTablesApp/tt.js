@@ -20,6 +20,8 @@ var allChecked = false;
 var quizSection = $("#quiz");
 var questionSection = $("#question");
 var endSession = $("#endPractice");
+var startedSession = false;
+var choiceOfTables = $("#choiceOfTables label");
 
 (function () {
     HideQuestionSection();
@@ -30,16 +32,18 @@ function HideQuestionSection() {
     endSession.hide();
 }
 
-$("#choiceOfTables label").on("click", function () {
-    var $this = $(this);
-    if (this.htmlFor != "selectAll") {
-        if (RemoveIfAlreadyInList(this)) {
-            $this.removeClass("chosen");
-        } else {
-            $this.addClass("chosen");
-            AddToList(this);
+choiceOfTables.on("click", function () {
+    if (startedSession === false) {
+        var $this = $(this);
+        if (this.htmlFor != "selectAll") {
+            if (RemoveIfAlreadyInList(this)) {
+                $this.removeClass("chosen");
+            } else {
+                $this.addClass("chosen");
+                AddToList(this);
+            }
         }
-    }
+    } 
 });
 
 function startPracticing() {
@@ -47,21 +51,25 @@ function startPracticing() {
     questionSection.show();
     newQuestion();
     endSession.show();
+    selectAll.prop("disabled", true);
+    startedSession = true;
 }
 
 selectAll.on("click", function () {
-    if (allChecked === false) {
-        window.tablesChosen = [];
-        $("#choiceOfTables label").each(function() {
-            if (this.htmlFor != "selectAll") {
-                $(this).addClass("chosen");
-                AddToList(this);
-            }
-        });
-        allChecked = true;
-    } else {
-        DeselectAll();
-        allChecked = false;
+    if (startedSession === false) {
+        if (allChecked === false) {
+            window.tablesChosen = [];
+            $("#choiceOfTables label").each(function() {
+                if (this.htmlFor != "selectAll") {
+                    $(this).addClass("chosen");
+                    AddToList(this);
+                }
+            });
+            allChecked = true;
+        } else {
+            DeselectAll();
+            allChecked = false;
+        }
     }
 });
 
@@ -183,9 +191,9 @@ function SetUpNextButton() {
 
 function stopPracticing() {
     HideQuestionSection();
-    DeselectAll();
-    selectAll.prop('checked', false);
+    DeselectAll();  
     startBtn.show();
+    selectAll.prop("disabled", false).prop("checked", false);
 }
 
 okBtn.click(validateAnswer);
