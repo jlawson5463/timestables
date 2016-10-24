@@ -174,6 +174,14 @@ function pressedEnter(e) {
     }
 }
 
+function Pressedf5(e) {
+    if ((e.keyCode || e.which) === 116) {
+        if (startedSession === true) {
+            e.preventDefault();
+        }
+    }
+}
+
 function SetUpOkButton() {
     nextBtn.prop("disabled", true);
     nextBtn.hide();
@@ -194,12 +202,14 @@ function stopPracticing() {
     DeselectAll();  
     startBtn.show();
     selectAll.prop("disabled", false).prop("checked", false);
+    startedSession = false;
 }
 
 okBtn.click(validateAnswer);
 nextBtn.click(newQuestion);
 givenAnswer.keypress(pressedEnter);
 givenAnswer.click(ShouldSetUpNewQuestion);
+$(document).on("keydown", Pressedf5);
 
 
 
