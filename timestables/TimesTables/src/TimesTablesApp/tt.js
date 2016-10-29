@@ -128,14 +128,18 @@ function validateAnswer() {
     errorMessage.show();
     errorMessage.text("");
     var answer = givenAnswer.val();
+    
     if (isNaN(answer)) {
         try {
             if (answer === "") {
                 throw new Error("Please type in your answer");
             }
-            if (isNaN(parseInt(answer))) {
-                throw new Error("Sorry that isn't a number");
+            for (var i = 0, len = answer.length; i < len; i++) {
+                if (isNaN(parseInt(answer[i]))) {
+                    throw new Error("Sorry that isn't a number");
+                };
             }
+            
         } catch (e) {
             errorMessage.text(e.message);
         }
