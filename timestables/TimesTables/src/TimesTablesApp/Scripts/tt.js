@@ -1,13 +1,6 @@
-﻿/*
-*** TODO
-
-stop page from refreshing so doesn't start from scratch, and can't skip questions
-
-*/
-
-var firstNumber = $("#firstNumber");
+﻿var firstNumber = $("#firstNumber");
 var secondNumber = $("#secondNumber");
-var givenAnswer = $("#givenAnswer");
+var givenAnswerBox = $("#givenAnswerBox");
 var okBtn = $("#okBtn");
 var nextBtn = $("#nextBtn");
 var errorMessage = $("#errorMessage");
@@ -22,6 +15,7 @@ var questionSection = $("#question");
 var endSession = $("#endPractice");
 var startedSession = false;
 var choiceOfTables = $("#choiceOfTables label");
+var timer;
 
 (function () {
     HideQuestionSection();
@@ -30,6 +24,29 @@ var choiceOfTables = $("#choiceOfTables label");
 function HideQuestionSection() {
     questionSection.hide();
     endSession.hide();
+}
+
+function ShowAdditionalTimeAlert() {
+    swal({
+        title: "Timeout!",
+        text: "What would you like to do?",
+        showCancelButton: true,
+        cancelButtonText: "Reveal answer",
+        type: "warning",
+        confirmButtonText: "More time please"
+    },
+        function(isConfirm) {
+            if (isConfirm) {
+                timer = setTimeout(ShowAdditionalTimeAlert, 30000);
+            }
+            else {
+                RevealAnswer();
+            }
+        });
+}
+
+function RevealAnswer() {
+   errorMessage.text("The answer is " + correctAnswerText);
 }
 
 choiceOfTables.on("click", function () {
@@ -102,7 +119,7 @@ function DeselectAll() {
 }
 
 function newQuestion() {
-    givenAnswer.prop("readonly", false);
+    givenAnswerBox.prop("readonly", false);
     setUpForNewInput();
     var num1 = GetNumber1();
     var num2 = parseInt(Math.random() * 12 + 1);
@@ -110,6 +127,7 @@ function newQuestion() {
     firstNumber.text(num1);
     secondNumber.text(num2);
     correctAnswerText = num1 * num2;
+    timer = setTimeout(ShowAdditionalTimeAlert, 3000);  
 }
 
 function GetNumber1() {
@@ -127,7 +145,7 @@ function GetNumber1() {
 function validateAnswer() {
     errorMessage.show();
     errorMessage.text("");
-    var answer = givenAnswer.val();
+    var answer = givenAnswerBox.val();
     
     if (isNaN(answer)) {
         try {
@@ -139,7 +157,6 @@ function validateAnswer() {
                     throw new Error("Sorry that isn't a number");
                 };
             }
-            
         } catch (e) {
             errorMessage.text(e.message);
         }
@@ -148,8 +165,9 @@ function validateAnswer() {
         if (parseInt(answer) === correctAnswerText) {
             isCorrectAnswer = true;
             errorMessage.append("Well done its correct");
-            givenAnswer.prop("readonly", true);
+            givenAnswerBox.prop("readonly", true);
             SetUpNextButton();
+            clearTimeout(timer);
         } else {
             errorMessage.append("Sorry thats not right");
         }
@@ -164,9 +182,9 @@ function ShouldSetUpNewQuestion() {
 
 function setUpForNewInput() {
     isCorrectAnswer = false;
-    givenAnswer.val("");
-    givenAnswer.prop("readonly", false);
-    givenAnswer.focus();
+    givenAnswerBox.val("");
+    givenAnswerBox.prop("readonly", false);
+    givenAnswerBox.focus();
     SetUpOkButton();
     errorMessage.text("");
 }
@@ -211,8 +229,8 @@ function stopPracticing() {
 
 okBtn.click(validateAnswer);
 nextBtn.click(newQuestion);
-givenAnswer.keypress(pressedEnter);
-givenAnswer.click(ShouldSetUpNewQuestion);
+givenAnswerBox.keypress(pressedEnter);
+givenAnswerBox.click(ShouldSetUpNewQuestion);
 $(document).on("keydown", Pressedf5);
 
 

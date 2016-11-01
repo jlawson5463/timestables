@@ -76,7 +76,7 @@ section p {
 }
 
 #quiz .chosen {
-    background:  #db4865 url("JQueryTheme/images/ui-bg_diagonals-small_40_db4865_40x40.png") 50% 50% repeat;
+    background:  #db4865 url("images/ui-bg_diagonals-small_40_db4865_40x40.png") 50% 50% repeat;
     color: white;
 }
 
