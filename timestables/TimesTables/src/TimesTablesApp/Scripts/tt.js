@@ -1,6 +1,6 @@
 ﻿var firstNumber = $("#firstNumber");
 var secondNumber = $("#secondNumber");
-var givenAnswerBox = $("#givenAnswerBox");
+var givenAnswerBox = $("#givenAnswer");
 var okBtn = $("#okBtn");
 var nextBtn = $("#nextBtn");
 var errorMessage = $("#errorMessage");
@@ -24,29 +24,6 @@ var timer;
 function HideQuestionSection() {
     questionSection.hide();
     endSession.hide();
-}
-
-function ShowAdditionalTimeAlert() {
-    swal({
-        title: "Timeout!",
-        text: "What would you like to do?",
-        showCancelButton: true,
-        cancelButtonText: "Reveal answer",
-        type: "warning",
-        confirmButtonText: "More time please"
-    },
-        function(isConfirm) {
-            if (isConfirm) {
-                timer = setTimeout(ShowAdditionalTimeAlert, 30000);
-            }
-            else {
-                RevealAnswer();
-            }
-        });
-}
-
-function RevealAnswer() {
-   errorMessage.text("The answer is " + correctAnswerText);
 }
 
 choiceOfTables.on("click", function () {
@@ -127,7 +104,7 @@ function newQuestion() {
     firstNumber.text(num1);
     secondNumber.text(num2);
     correctAnswerText = num1 * num2;
-    timer = setTimeout(ShowAdditionalTimeAlert, 3000);  
+    timer = setTimeout(ShowAdditionalTimeAlert, 30000);  
 }
 
 function GetNumber1() {
@@ -187,6 +164,10 @@ function setUpForNewInput() {
     givenAnswerBox.focus();
     SetUpOkButton();
     errorMessage.text("");
+}
+
+function RevealAnswer() {
+    errorMessage.text("The answer is " + correctAnswerText);
 }
 
 function pressedEnter(e) {
