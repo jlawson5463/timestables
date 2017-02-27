@@ -16,6 +16,9 @@ var endSession = $("#endPractice");
 var startedSession = false;
 var choiceOfTables = $("#choiceOfTables label");
 var timer;
+var totalCorrectAnswers = 0;
+var moreTimeSelected = 0;
+var revealedAnswer = 0;
 
 (function () {
     HideQuestionSection();
@@ -70,7 +73,7 @@ selectAll.on("click", function () {
 function AddToList(buttonClicked) {
     var numToAdd = buttonClicked.innerText;
     window.tablesChosen.push(parseInt(numToAdd));
-    document.cookie = "tablesChosen=" + tablesChosen;
+    document.cookie = "Which Tables Chosen=" + tablesChosen;
 }
 
 function RemoveIfAlreadyInList(buttonClicked) {
@@ -78,7 +81,7 @@ function RemoveIfAlreadyInList(buttonClicked) {
         var $this = window.tablesChosen[i];
         if ($this === parseInt(buttonClicked.innerText)) {
             window.tablesChosen.splice(i, 1);
-            document.cookie = "tablesChosen=" + tablesChosen;
+            document.cookie = "Which Tables Chosen=" + tablesChosen;
             return true;
         }
     }
@@ -89,7 +92,7 @@ function DeselectAll() {
     $("#choiceOfTables label").each(function() {
         if (this.htmlFor != "selectAll") {
             window.tablesChosen.splice(this, 1);
-            document.cookie = "tablesChosen=" + tablesChosen;
+            document.cookie = "Which Tables Chosen=" + tablesChosen;
             $(this).removeClass("chosen");
         }
     });
@@ -100,7 +103,7 @@ function newQuestion() {
     setUpForNewInput();
     var num1 = GetNumber1();
     var num2 = parseInt(Math.random() * 12 + 1);
-    document.cookie = "numberTwo=" + num2 + ";";
+    document.cookie = "number Two=" + num2 + ";";
     firstNumber.text(num1);
     secondNumber.text(num2);
     correctAnswerText = num1 * num2;
@@ -115,7 +118,7 @@ function GetNumber1() {
     } else {
         num1 = parseInt(Math.random() * 12 + 1);
     }
-    document.cookie = "numberOne=" + num1 + ";";
+    document.cookie = "Number One=" + num1 + ";";
     return num1;
 }
 
@@ -141,12 +144,13 @@ function validateAnswer() {
     else {
         if (parseInt(answer) === correctAnswerText) {
             isCorrectAnswer = true;
-            errorMessage.append("Well done its correct");
+            errorMessage.append('<img src="Content\\images\\tick.jpg" height="200px" width="200px">');
             givenAnswerBox.prop("readonly", true);
             SetUpNextButton();
             clearTimeout(timer);
+            ++totalCorrectAnswers;
         } else {
-            errorMessage.append("Sorry thats not right");
+            errorMessage.append('<img src="Content\\images\\cross.png" height="128px" width="158px">');
         }
     }
 }
@@ -201,11 +205,24 @@ function SetUpNextButton() {
 }
 
 function stopPracticing() {
+    clearInterval(timer);
+    PopulateStatsForm();
+
     HideQuestionSection();
     DeselectAll();  
     startBtn.show();
     selectAll.prop("disabled", false).prop("checked", false);
     startedSession = false;
+    totalCorrectAnswers = 0;
+    moreTimeSelected = 0;
+    revealedAnswer = 0;
+}
+
+function PopulateStatsForm() {
+    $('#statsForm').css('visibility', 'visible');
+    $('#TotalAnswers').val(totalCorrectAnswers);
+    $('#MoreTime').val(moreTimeSelected);
+    $('#Revealed').val(revealedAnswer);
 }
 
 okBtn.click(validateAnswer);

@@ -58,6 +58,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\images\cross.png" />
+    <Content Include="Content\images\tick.jpg" />
     <Content Include="Content\sweetalert.css" />
     <Content Include="index.html" />
     <Content Include="Scripts\Alerts.js" />
@@ -116,7 +118,7 @@
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>0</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:49324/</IISUrl>
+          <IISUrl>http://localhost:50265/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

@@ -10,9 +10,11 @@
         function (isConfirm) {
             if (isConfirm) {
                 timer = setTimeout(ShowAdditionalTimeAlert, 30000);
+                ++moreTimeSelected;
             }
             else {
                 RevealAnswer();
+                ++revealedAnswer;
             }
         });
 }
