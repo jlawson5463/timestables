@@ -37,6 +37,7 @@ choiceOfTables.on("click", function () {
                 $this.removeClass("chosen");
             } else {
                 $this.addClass("chosen");
+                console.log(this);
                 AddToList(this);
             }
         }
@@ -56,11 +57,11 @@ selectAll.on("click", function () {
     if (startedSession === false) {
         if (allChecked === false) {
             window.tablesChosen = [];
-            $("#choiceOfTables label").each(function() {
-                if (this.htmlFor != "selectAll") {
-                    $(this).addClass("chosen");
+            $("#choiceOfTables label").each(function () {
+               if (this.htmlFor != "selectAll") {
                     AddToList(this);
                 }
+                $(this).addClass("chosen");
             });
             allChecked = true;
         } else {
@@ -93,8 +94,8 @@ function DeselectAll() {
         if (this.htmlFor != "selectAll") {
             window.tablesChosen.splice(this, 1);
             document.cookie = "Which Tables Chosen=" + tablesChosen;
-            $(this).removeClass("chosen");
         }
+        $(this).removeClass("chosen");
     });
 }
 

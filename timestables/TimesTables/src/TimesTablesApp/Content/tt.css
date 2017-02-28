@@ -26,6 +26,9 @@ section p {
     font-size: 1em;
 }
  
+fieldset {
+    border: none;
+}
 #endPractice{
     position: absolute;
     right: 5px;
@@ -39,23 +42,22 @@ section p {
     margin-bottom: 2em;
 }
 
-    #choiceOfTables .ui-button:not(:first-child) {
+    #choiceOfTables .ui-button {
         min-width: 50px;
+        text-align: center;
     }
 
     #choiceOfTables .ui-button{
         margin: 0 5px;
-        padding: 0px;
+        padding: 0;
         height: 48px;
+        line-height: 48px;
         text-align: center;
     }
 
-    #choiceOfTables .ui-button:first-child {
-        width: 140px;
-        font-size: 0.6em;
-        line-height: 48px;
+    #choiceOfTables .ui-button:last-child {
+        padding: 10px;
     }
-
 
 #givenAnswer {
     width: 200px;
@@ -76,7 +78,25 @@ section p {
 }
 
 #quiz .chosen {
-    background:  #db4865 url("images/ui-bg_diagonals-small_40_db4865_40x40.png") 50% 50% repeat;
-    color: white;
+    background: #0073ea; 
+    color:  #ffffff; 
+    border: 1px solid #dddddd;
+}
+
+#quiz .chosen.ui-button:hover {
+    background:#0073ea;
+    color: #ffffff;
+}
+
+#selectAllDiv {
+    margin-top: 20px;
+}
+
+#choiceOfTables #selectAllDiv .ui-button {
+    padding: 0 10px;
+}
+
+#quiz .selectedAll {
+    
 }
 

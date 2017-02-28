@@ -7,8 +7,8 @@
     <link href="Content/jquery-ui.css" rel="stylesheet" />
     <link href="Content/jquery-ui.theme.css" rel="stylesheet" />
     <link rel="stylesheet" href="Content/tt.css" type="text/css"/>
+    <link rel="stylesheet" type="text/css" href="Content/sweetalert.css" />
     <script src="Scripts/sweetalert.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="Content/sweetalert.css"/>
 </head>
 
 <body>
@@ -20,8 +20,7 @@
         <legend>Choose your tables</legend>
         <div role="toolbar" class="ui-controlgroup ui-controlgroup-horizontal ui-helper-clearfix">
 
-            <label for="selectAll" class="ui-button ui-widget ">select all</label>
-            <input type="checkbox" name="selectAll" id="selectAll"/>
+
 
             <label for="one" class="ui-button ui-widget ui-checkboxradio-checked ui-controlgroup-item">1</label>
             <input type="submit" name="one" id="one" class="ui-checkboxradio ui-helper-hidden-accessible"/>
@@ -47,6 +46,10 @@
             <input type="submit" name="eleven" id="eleven" class="ui-checkboxradio ui-helper-hidden-accessible"/>
             <label for="twelve" class="ui-button ui-widget ui-checkboxradio-checked ui-controlgroup-item">12</label>
             <input type="submit" name="twelve" id="twelve" class="ui-checkboxradio ui-helper-hidden-accessible"/>
+        </div>
+        <div id="selectAllDiv">
+            <label id="selectAllLabel" for="selectAll" class="ui-button ui-widget ui-checkboxradio-checked ui-controlgroup-item">All</label>
+            <input type="submit" id="selectAll" name="selectAll" class="ui-checkboxradio ui-helper-hidden-accessible"/>
         </div>
     </fieldset>
 
