@@ -96,7 +96,6 @@ fieldset {
     padding: 0 10px;
 }
 
-#quiz .selectedAll {
-    
+#ex1 p, a {
+    font-size: 0.5em;
 }
-

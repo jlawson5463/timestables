@@ -7,8 +7,10 @@
     <link href="Content/jquery-ui.css" rel="stylesheet" />
     <link href="Content/jquery-ui.theme.css" rel="stylesheet" />
     <link rel="stylesheet" href="Content/tt.css" type="text/css"/>
-    <link rel="stylesheet" type="text/css" href="Content/sweetalert.css" />
+    <link rel="stylesheet" type="text/css" href="Content/sweetalert.css"/>
+    <link rel="stylesheet" type="text/css" href="Content/jquery.modal.css"/>
     <script src="Scripts/sweetalert.min.js"></script>
+    <script src="Scripts/jquery.modal.js" type="text/javascript" charset="utf-8"></script>
 </head>
 
 <body>
@@ -19,8 +21,6 @@
     <fieldset id="choiceOfTables">
         <legend>Choose your tables</legend>
         <div role="toolbar" class="ui-controlgroup ui-controlgroup-horizontal ui-helper-clearfix">
-
-
 
             <label for="one" class="ui-button ui-widget ui-checkboxradio-checked ui-controlgroup-item">1</label>
             <input type="submit" name="one" id="one" class="ui-checkboxradio ui-helper-hidden-accessible"/>
@@ -68,19 +68,18 @@
     <button type="button" id="endPractice" class="ui-button ui-widget ui-checkboxradio-checked ui-controlgroup-item" onclick="stopPracticing()">End Session</button>
 </section>
 
-<!-- create a form and use values from the cookie to populate it -->
+<div id="ex1" style="display: none;">
+    <p id="TotalAnswers">Total Correct Answers: </p>
+    <p id="MoreTime">Needed more time for: </p>
+    <p id="Revealed">Revealed answers: </p>
+    <a href="#" rel="modal:close">Close</a>
+</div>
+    <!-- http://jquerymodal.com/ -->
+<p style="display: none"><a href="#ex1" rel="modal:open" id="openModalLink" >Open Modal</a></p>
+
 <!-- save the form in a word doc to a file location on my comp, preselect the location used but let it be overridden -->
 <!-- email a copy of the form, to any email address -->
 <!-- output results in a funky graph -->
-
-<section id="statsForm" style="visibility: hidden">
-    <!--<form method="POST" action="">
-        Total Correct Answers: <input type="text" name="TotalAnswers" id="TotalAnswers" value=""><br>
-        Needed more time for: <input type="text" name="MoreTime" id="MoreTime" value=""><br>
-        Revealed answers for: <input type="text" name="Revealed" id="Revealed" value=""><br>
-        <input type="submit" value="Save">
-    </form>-->
-</section>
 
 <script src="Scripts/tt.js"></script>
 <script src="Scripts/Alerts.js"></script>

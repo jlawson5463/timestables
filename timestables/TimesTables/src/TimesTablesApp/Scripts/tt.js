@@ -13,9 +13,11 @@ var allChecked = false;
 var quizSection = $("#quiz");
 var questionSection = $("#question");
 var endSession = $("#endPractice");
+var openModalLink = $('#openModalLink');
 var startedSession = false;
 var choiceOfTables = $("#choiceOfTables label");
 var timer;
+var overallTimer;
 var totalCorrectAnswers = 0;
 var moreTimeSelected = 0;
 var revealedAnswer = 0;
@@ -45,6 +47,7 @@ choiceOfTables.on("click", function () {
 });
 
 function startPracticing() {
+    // overallTimer = read - https://www.ostraining.com/blog/coding/stopwatch/
     startBtn.hide();
     questionSection.show();
     newQuestion();
@@ -207,23 +210,26 @@ function SetUpNextButton() {
 
 function stopPracticing() {
     clearInterval(timer);
-    PopulateStatsForm();
-
+    showModal();
     HideQuestionSection();
     DeselectAll();  
     startBtn.show();
     selectAll.prop("disabled", false).prop("checked", false);
     startedSession = false;
+    ResetVariableValues();
+}
+
+function ResetVariableValues() {
     totalCorrectAnswers = 0;
     moreTimeSelected = 0;
     revealedAnswer = 0;
 }
 
-function PopulateStatsForm() {
-    $('#statsForm').css('visibility', 'visible');
-    $('#TotalAnswers').val(totalCorrectAnswers);
-    $('#MoreTime').val(moreTimeSelected);
-    $('#Revealed').val(revealedAnswer);
+function showModal() {
+    $('#TotalAnswers').append(totalCorrectAnswers);
+    $('#MoreTime').append(moreTimeSelected);
+    $('#Revealed').append(revealedAnswer);
+    openModalLink.click();
 }
 
 okBtn.click(validateAnswer);
@@ -231,6 +237,3 @@ nextBtn.click(newQuestion);
 givenAnswerBox.keypress(pressedEnter);
 givenAnswerBox.click(ShouldSetUpNewQuestion);
 $(document).on("keydown", Pressedf5);
-
-
-
