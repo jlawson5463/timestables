@@ -127,6 +127,7 @@ function GetNumber1() {
 }
 
 function validateAnswer() {
+
     errorMessage.show();
     errorMessage.text("");
     var answer = givenAnswerBox.val();
@@ -148,6 +149,8 @@ function validateAnswer() {
     else {
         if (parseInt(answer) === correctAnswerText) {
             isCorrectAnswer = true;
+            answer = givenAnswerBox.val().replace(/^[0]+/g, "");
+            givenAnswerBox.val(answer);
             errorMessage.append('<img src="Content\\images\\tick.png" height="146px" width="194px">');
             givenAnswerBox.prop("readonly", true);
             SetUpNextButton();
