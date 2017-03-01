@@ -148,13 +148,13 @@ function validateAnswer() {
     else {
         if (parseInt(answer) === correctAnswerText) {
             isCorrectAnswer = true;
-            errorMessage.append('<img src="Content\\images\\tick.jpg" height="200px" width="200px">');
+            errorMessage.append('<img src="Content\\images\\tick.png" height="146px" width="194px">');
             givenAnswerBox.prop("readonly", true);
             SetUpNextButton();
             clearTimeout(timer);
             ++totalCorrectAnswers;
         } else {
-            errorMessage.append('<img src="Content\\images\\cross.png" height="128px" width="158px">');
+            errorMessage.append('<img src="Content\\images\\cross.png" height="151px" width="153px">');
         }
     }
 }
