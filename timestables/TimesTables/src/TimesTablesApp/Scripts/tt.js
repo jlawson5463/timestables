@@ -220,6 +220,7 @@ function stopPracticing() {
     selectAll.prop("disabled", false).prop("checked", false);
     startedSession = false;
     ResetVariableValues();
+    ClearModalValues();
 }
 
 function ResetVariableValues() {
@@ -229,9 +230,9 @@ function ResetVariableValues() {
 }
 
 function showModal() {
-    $('#TotalAnswers').append(totalCorrectAnswers);
-    $('#MoreTime').append(moreTimeSelected);
-    $('#Revealed').append(revealedAnswer);
+   $('#TotalAnswers').text('Total answers: ' + totalCorrectAnswers);
+    $('#MoreTime').text('More time needed for: ' + moreTimeSelected);
+    $('#Revealed').text('Total answers revealed: ' + revealedAnswer);
     openModalLink.click();
 }
 
