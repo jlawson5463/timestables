@@ -14,12 +14,13 @@ section p {
     }
 
 .ui-button {
-    padding: 30px 60px;
+    padding: 30px 40px;
     border-radius: 10px;
 }
 
 #okBtn {
     top: -6px;
+    border-radius: 10px;
 }
 
 #startBtn {
@@ -33,13 +34,14 @@ fieldset {
     position: absolute;
     right: 5px;
     bottom: 5px;
-    font-size: 0.4em;
+    font-size: 0.6em;
     padding: 10px 15px;
 }
 
 #choiceOfTables {
     font-size: 0.7em;
     margin-bottom: 2em;
+    margin-top: 4em;;
 }
 
     #choiceOfTables .ui-button {
@@ -62,6 +64,7 @@ fieldset {
 #givenAnswer {
     width: 200px;
     vertical-align: central;
+    margin-right: 1em;
 }
 
 #quiz {
@@ -98,4 +101,18 @@ fieldset {
 
 #ex1 p, a {
     font-size: 0.5em;
+}
+
+#errorMessage {
+    margin-top: 2em;
+}
+
+#beginPracticing a {
+    font-size: 1em;
+    color: white;
+    text-decoration: underline;
+}
+
+#beginPracticing{
+    margin-top: 1em;
 }

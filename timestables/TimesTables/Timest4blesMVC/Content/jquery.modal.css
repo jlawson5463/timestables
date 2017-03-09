@@ -25,11 +25,11 @@
   vertical-align: middle;
   position: relative;
   z-index: 2;
-  max-width: 500px;
+  max-width: 600px;
   box-sizing: border-box;
   width: 90%;
   background: #fff;
-  padding: 15px 30px;
+  padding: 30px 30px;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
   -o-border-radius: 8px;
@@ -45,8 +45,8 @@
 
 .modal a.close-modal {
   position: absolute;
-  top: -12.5px;
-  right: -12.5px;
+  top: 5px;
+  right: 5px;
   display: block;
   width: 30px;
   height: 30px;

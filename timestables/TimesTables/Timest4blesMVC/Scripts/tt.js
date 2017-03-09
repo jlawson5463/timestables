@@ -26,6 +26,7 @@ var revealedAnswer = 0;
     HideQuestionSection();
 })();
 
+
 function HideQuestionSection() {
     questionSection.hide();
     endSession.hide();
@@ -150,14 +151,14 @@ function validateAnswer() {
         if (parseInt(answer) === correctAnswerText) {
             isCorrectAnswer = true;
             answer = givenAnswerBox.val().replace(/^[0]+/g, "");
-            givenAnswerBox.val(answer);
-            errorMessage.append('<img src="Content\\images\\tick.png" height="146px" width="194px">');
+            givenAnswerBox.val(answer); 
+            errorMessage.append('<img src="..//..//Content\\images\\tick.png" height="73px" width="97px">');
             givenAnswerBox.prop("readonly", true);
             SetUpNextButton();
             clearTimeout(timer);
             ++totalCorrectAnswers;
         } else {
-            errorMessage.append('<img src="Content\\images\\cross.png" height="151px" width="153px">');
+            errorMessage.append('<img src="..//..//Content\\images\\cross.png" height="75px" width="75px">');
         }
     }
 }
@@ -220,7 +221,6 @@ function stopPracticing() {
     selectAll.prop("disabled", false).prop("checked", false);
     startedSession = false;
     ResetVariableValues();
-    ClearModalValues();
 }
 
 function ResetVariableValues() {

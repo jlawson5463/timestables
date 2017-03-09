@@ -1,0 +1,74 @@
+﻿
+@{
+    ViewBag.Title = "Times Tables App";
+}
+
+    <section id="quiz">
+
+        <fieldset id="choiceOfTables">
+            <legend>Choose your tables</legend>
+            <div role="toolbar" class="ui-controlgroup ui-controlgroup-horizontal ui-helper-clearfix">
+
+                <label for="one" class="ui-button ui-widget ui-checkboxradio-checked ui-controlgroup-item">1</label>
+                <input type="submit" name="one" id="one" class="ui-checkboxradio ui-helper-hidden-accessible" />
+                <label for="two" class="ui-button ui-widget ui-checkboxradio-checked ui-controlgroup-item">2</label>
+                <input type="submit" name="two" id="two" class="ui-checkboxradio ui-helper-hidden-accessible" />
+                <label for="three" class="ui-button ui-widget ui-checkboxradio-checked ui-controlgroup-item">3</label>
+                <input type="submit" name="three" id="three" class="ui-checkboxradio ui-helper-hidden-accessible" />
+                <label for="four" class="ui-button ui-widget ui-checkboxradio-checked ui-controlgroup-item">4</label>
+                <input type="submit" name="four" id="four" class="ui-checkboxradio ui-helper-hidden-accessible" />
+                <label for="five" class="ui-button ui-widget ui-checkboxradio-checked ui-controlgroup-item">5</label>
+                <input type="submit" name="five" id="five" class="ui-checkboxradio ui-helper-hidden-accessible" />
+                <label for="six" class="ui-button ui-widget ui-checkboxradio-checked ui-controlgroup-item">6</label>
+                <input type="submit" name="six" id="six" class="ui-checkboxradio ui-helper-hidden-accessible" />
+                <label for="seven" class="ui-button ui-widget ui-checkboxradio-checked ui-controlgroup-item">7</label>
+                <input type="submit" name="seven" id="seven" class="ui-checkboxradio ui-helper-hidden-accessible" />
+                <label for="eight" class="ui-button ui-widget ui-checkboxradio-checked ui-controlgroup-item">8</label>
+                <input type="submit" name="eight" id="eight" class="ui-checkboxradio ui-helper-hidden-accessible" />
+                <label for="nine" class="ui-button ui-widget ui-checkboxradio-checked ui-controlgroup-item">9</label>
+                <input type="submit" name="nine" id="nine" class="ui-checkboxradio ui-helper-hidden-accessible" />
+                <label for="ten" class="ui-button ui-widget ui-checkboxradio-checked ui-controlgroup-item">10</label>
+                <input type="submit" name="ten" id="ten" class="ui-checkboxradio ui-helper-hidden-accessible" />
+                <label for="eleven" class="ui-button ui-widget ui-checkboxradio-checked ui-controlgroup-item">11</label>
+                <input type="submit" name="eleven" id="eleven" class="ui-checkboxradio ui-helper-hidden-accessible" />
+                <label for="twelve" class="ui-button ui-widget ui-checkboxradio-checked ui-controlgroup-item">12</label>
+                <input type="submit" name="twelve" id="twelve" class="ui-checkboxradio ui-helper-hidden-accessible" />
+            </div>
+            <div id="selectAllDiv">
+                <label id="selectAllLabel" for="selectAll" class="ui-button ui-widget ui-checkboxradio-checked ui-controlgroup-item">All</label>
+                <input type="submit" id="selectAll" name="selectAll" class="ui-checkboxradio ui-helper-hidden-accessible" />
+            </div>
+        </fieldset>
+
+        <button type="button" id="startBtn" class="ui-button ui-widget ui-checkboxradio-checked ui-controlgroup-item" onclick="startPracticing()">Start</button>
+
+        <div id="question" style="display: none">
+            <p id="firstNumber"></p>
+            <p id="timesSign">X</p>
+            <p id="secondNumber"></p>
+            <p id="equalsSign">=</p>
+            <input id="givenAnswer" type="text" class="ui-widget" />
+            <input id="okBtn" type="button" value="OK" class="ui-button" />
+            <input id="nextBtn" type="button" value="Next" class="ui-button" />
+            <p id="errorMessage"></p>
+        </div>
+        <button type="button" id="endPractice" class="ui-button ui-widget ui-checkboxradio-checked ui-controlgroup-item" onclick="stopPracticing()">End Session</button>
+    </section>
+
+    <div id="ex1" style="display: none;">
+        <p id="TotalAnswers"></p>
+        <p id="MoreTime"></p>
+        <p id="Revealed"></p>
+        <a href="#" rel="modal:close">Close</a>
+    </div>
+    <!-- http://jquerymodal.com/ -->
+    <p style="display: none"><a href="#ex1" rel="modal:open" id="openModalLink">Open Modal</a></p>
+
+    <!-- save the form in a word doc to a file location on my comp, preselect the location used but let it be overridden -->
+    <!-- email a copy of the form, to any email address -->
+    <!-- output results in a funky graph -->
+
+    <script src="~/Scripts/tt.js"></script>
+    <script src="~/Scripts/Alerts.js"></script>
+
+

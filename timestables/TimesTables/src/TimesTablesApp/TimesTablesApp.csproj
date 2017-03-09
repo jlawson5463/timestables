@@ -58,29 +58,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\images\cross.png" />
-    <Content Include="Content\images\tick.png" />
-    <Content Include="Content\jquery.modal.css" />
-    <Content Include="Content\jquery.modal.min.css" />
-    <Content Include="Content\sweetalert.css" />
     <Content Include="index.html" />
-    <Content Include="Scripts\Alerts.js" />
-    <Content Include="Scripts\gulpfile.js" />
-    <Content Include="Scripts\jquery-3.1.0.js" />
-    <Content Include="Content\jquery-ui.css" />
-    <Content Include="Scripts\jquery-ui.js" />
-    <Content Include="Content\jquery-ui.min.css" />
-    <Content Include="Scripts\jquery-ui.min.js" />
-    <Content Include="Content\jquery-ui.structure.css" />
-    <Content Include="Content\jquery-ui.structure.min.css" />
-    <Content Include="Content\jquery-ui.theme.css" />
-    <Content Include="Content\jquery-ui.theme.min.css" />
-    <Content Include="Content\tt.css" />
-    <Content Include="Scripts\jquery.modal.js" />
-    <Content Include="Scripts\jquery.modal.min.js" />
-    <Content Include="Scripts\sweetalert-dev.js" />
-    <Content Include="Scripts\sweetalert.min.js" />
-    <Content Include="Scripts\tt.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -94,7 +72,10 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Content\" />
+    <Folder Include="Scripts\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
