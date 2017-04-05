@@ -16,9 +16,50 @@
     white-space: normal;
 }
 
-/* Set width on the form input elements since they're 100% wide by default */
+/* Set width on the form input elements since they're 100% wide by default
 input,
 select,
 textarea {
     max-width: 280px;
+}
+     */
+
+@media screen and (max-width: 1280px) {
+    #quiz {
+        width: 800px;
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    #quiz {
+        width: 800px;
+    }
+}
+
+/*for 1280px screens*/
+@media screen and (min-width: 1366px) and (max-width: 1439px) {
+    #quiz {
+        width: 1000px;
+    }
+}
+
+/*for 1366px screens*/
+@media screen and (min-width: 1440px) and (max-width: 1599px) {
+    #quiz {
+        width: 1200px;
+    }
+}
+
+/*for 1440px screens*/
+@media screen and (min-width: 1600px) and (max-width: 1919px) {
+    #quiz {
+        width: 1400px;
+    }
+}
+
+/*for 1600px screens*/
+@media screen and (min-width: 1920px) {
+    #quiz {
+        width: 1600px;
+    }
 }
